@@ -1,0 +1,11 @@
+# -- Data Directories -- #
+data/
+results/
+
+# -- Checkpoints -- #
+*.ipynb_checkpoints
+.DS_Store
+
+# -- Environments -- #
+.env/
+env/
