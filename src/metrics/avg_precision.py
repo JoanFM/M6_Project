@@ -16,7 +16,7 @@ def compute_average_precision(mIOU: float, groundtruths_bbox: List[BoundingBox],
         
     def recall(i):
         count = len(list(filter(lambda x: x is True, results[:i])))
-        return count / len(gt_bbox)
+        return count / len(groundtruths_bbox)
     
     ap = 0
     for i in range(1, len(results)):

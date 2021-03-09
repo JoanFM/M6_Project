@@ -7,10 +7,13 @@ from src.utils.entities import BoundingBox
 
 def apply_noise_to_bounding_boxes(bounding_boxes, noise):
 	if isinstance(bounding_boxes, list):
-		_apply_noise_to_list(bounding_boxes, noise)
+		noisy_bb = _apply_noise_to_list(bounding_boxes, noise)
 	elif isinstance(bounding_boxes, OrderedDict):
-		_apply_noise_to_dict(bounding_boxes, noise)
-
+		noisy_bb = _apply_noise_to_dict(bounding_boxes, noise)
+	else:
+		raise ValueError(f'The bounding boxes type is not supported: {type(bounding_boxes)}')
+	return noisy_bb
+	
 def _apply_noise_to_list(bounding_boxes, noise, ):
 	noisy_bounding_boxes = []
 	for bbox in bounding_boxes:
